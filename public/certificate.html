@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" href="geca-fevicon.png" type="image/png">
+    <title>Your GECA Bonafide Certificate</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Hide non-printable elements during printing */
+        @media print {
+            .no-print {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="border1">
+        <div class="container my-2">
+            <div class="border2">
+
+                <!-- Buttons for Print and Copy -->
+                <div class="mt-3 no-print">
+                    <button class="btn btn-primary" onclick="window.print()">Print Certificate</button>
+
+                </div>
+
+                <div id="certificateContent">
+                    <!-- The certificate content will be dynamically generated here -->
+                </div>
+            </div>
+
+            <!-- Buttons for Print and Copy -->
+            <div class="mt-3 no-print">
+                <button class="btn btn-primary" onclick="window.print()">Print Certificate</button>
+
+            </div>
+        </div>
+    </div>
+    <script>
+        // Fetch and display the certificate content
+        async function loadCertificate() {
+            try {
+                const response = await fetch('/certificate-data');
+                if (!response.ok) throw new Error('Network response was not ok');
+                const certificateHTML = await response.text();
+                document.getElementById('certificateContent').innerHTML = certificateHTML;
+            } catch (error) {
+                console.error('Failed to load certificate:', error);
+            }
+        }
+
+        // Call the function to load the certificate on page load
+        loadCertificate();
+
+    </script>
+</body>
+
+</html>

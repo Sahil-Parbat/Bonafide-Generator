@@ -1,0 +1,20 @@
+{
+  "name": "sahil-bonafide-generator",
+  "version": "1.0.0",
+  "description": "The Bonafide Certificate Generator is a web application that enables users to easily create and manage multiple bonafide certificates for students in a user-friendly interface.",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon src/app.js"
+  },
+  "keywords": [],
+  "author": "Sahil Rajesh Parbat",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "express": "^4.21.1",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}
